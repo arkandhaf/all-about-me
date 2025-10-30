@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS 2: My Songs For You - Arkan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .song-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .song-title {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .song-artist {
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .lyrics-container {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+        
+        .song-info {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .album-cover {
+            flex: 0 0 200px;
+        }
+        
+        .album-cover img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .song-details {
+            flex: 1;
+        }
+        
+        .why-matters {
+            background-color: #e8f4fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .why-matters h2 {
+            color: #e74c3c;
+            border-bottom: none;
+        }
+        
+        .father-connection {
+            background-color: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .father-connection h3 {
+            color: #e67e22;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .spotify-player {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .spotify-player iframe {
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .song-info {
+                flex-direction: column;
+            }
+            
+            .album-cover {
+                align-self: center;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UTS 2: My Songs For You</h1>
+            <p>Lagu-lagu yang memiliki makna khusus dalam hidup saya</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="song-header">
+                <h1 class="song-title">Pastikan Riuh Akhiri Malammu</h1>
+                <p class="song-artist">oleh Perunggu</p>
+            </div>
+            
+            <div class="song-info">
+                <div class="album-cover">
+                    <img src="Perunggu.jpeg" alt="Album Cover Perunggu">
+                </div>
+                <div class="song-details">
+                    <h2>About It</h2>
+                    <p>Lagu <strong>"Pastikan Riuh Akhiri Malammu"</strong> oleh <strong>Perunggu</strong> adalah sebuah karya yang penuh dengan makna tentang dukungan, persahabatan, dan keteguhan hati. Lagu ini bercerita tentang seseorang yang berjanji untuk selalu ada menemani melalui suka dan duka, memberikan kekuatan di saat-saat sulit.</p>
+                    
+                    <p>Melodi yang menenangkan dan lirik yang dalam menciptakan suasana yang menghibur dan meneduhkan, mengingatkan kita akan pentingnya memiliki seseorang yang selalu siap mendukung kita.</p>
+                    
+                    <div class="spotify-player">
+                        <!-- Ganti dengan embed Spotify lagu Perunggu yang sebenarnya -->
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/K1RepjSXQV8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Lyrics</h2>
+            <div class="lyrics-container">
+Tumbuhlah mendaki
+Seribu upaya kan kau nikmati
+Besok hari senin
+Kutemani senyummu seperti kemarin
+
+Silih berganti ruang kau penuhi
+Ku perlu hadir di semua yang kau tangisi
+Panggil aku kapanpun kutemani
+Pastikan riuh akhiri malammu lagi
+
+Melantunlah semerdu mungkin (melantunlah)
+Merdumu yang buatku pulih (melantunlah)
+Genggam jariku seeratnya (melantunlah)
+Kubuat angin berpihak gerak searah
+
+Silih berganti ruang kau penuhi
+Ku perlu hadir di semua yang kau tangisi
+Panggil aku kapanpun kutemani
+Pastikan riuh akhiri malammu lagi
+
+Melantunlah semerdu mungkin (melantunlah)
+Merdumu yang buatku pulih (melantunlah)
+Genggam jariku seeratnya (melantunlah)
+Kubuat angin berpihak gerak searah
+
+Melantunlah semerdu mungkin (melantunlah)
+Merdumu yang buatku pulih (melantunlah)
+Genggam jariku seeratnya (melantunlah)
+Kubuat angin berpihak gerak searah
+            </div>
+            
+            <div class="why-matters">
+                <h2>About This Songs</h2>
+                <p>Lagu ini memiliki tempat khusus di hati saya karena selalu mengingatkan saya pada sosok ayah yang sabar dan selalu melindungi saya, bahkan ketika dunia terasa begitu berat. Setiap kali mendengar lagu ini, saya teringat bagaimana ayah selalu menjadi pelindung dan penenang dalam hidup saya.</p>
+                
+                <p>Lirik <em>"Panggil aku kapanpun kutemani, pastikan riuh akhiri malammu lagi"</em> sangat mencerminkan bagaimana ayah selalu siap kapanpun saya membutuhkannya. Dia adalah orang yang selalu menjamin bahwa saya bisa mengakhiri hari dengan tenang, tidak peduli seberapa sulit hari yang telah dilalui.</p>
+            </div>
+            
+            <div class="father-connection">
+                <h3><i class="fas fa-heart"></i> Why this songs Matters to me </h3>
+                <p>Lagu ini menjadi soundtrack dari hubungan saya dengan ayah. Ketika mendengar lirik <em>"Tumbuhlah mendaki, seribu upaya kan kau nikmati"</em>, saya teringat bagaimana ayah selalu mendorong saya untuk menikmati proses perjuangan dalam hidup. Dia mengajarkan bahwa setiap tantangan adalah bagian dari pertumbuhan.</p>
+                
+                <p><em>"Besok hari senin, kutemani senyummu seperti kemarin"</em> - Ayah selalu ada di sisi saya, bahkan di hari-hari biasa seperti Senin pagi. Dia tidak pernah lelah menemani dan mendukung saya melalui rutinitas sehari-hari.</p>
+                
+                <p>Bagian <em>"Genggam jariku seeratnya, kubuat angin berpihak gerak searah"</em> sangat menyentuh hati saya. Ini mengingatkan saya pada bagaimana ayah selalu memegang tangan saya dengan erat, memberikan keyakinan bahwa segala sesuatu akan berjalan dengan baik, bahwa alam semesta akan berpihak pada kita.</p>
+                
+                <p>Ayah adalah sosok yang selalu membuat saya merasa aman dan dilindungi. Lagu ini mengabadikan perasaan itu - perasaan bahwa ada seseorang yang selalu siap menenangkan badai dalam hidup saya, persis seperti yang selalu ayah lakukan.</p>
+                
+                <p><em>"Pastikan Riuh Akhiri Malammu"</em> bukan sekadar lagu bagi saya, melainkan pengingat akan kasih sayang tanpa syarat dari seorang ayah yang selalu ada untuk anaknya, dalam suka maupun duka.</p>
+
+                <p>Walaupun selama kuliah kita dekat, tetapi namamu selalu ada dipikiranku setiap hari, Terimakasih selalu sabar dan menerima aku dengan tulusu, Yah!
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah. UTS 2 - II2100 Komunikasi Interpersonal dan Publik.</p>
+            <div class="contact-links">
+                <a href="mailto:18224116@std.stei.itb.ac.id" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/arkandhaf" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
