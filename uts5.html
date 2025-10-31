@@ -43,7 +43,9 @@
         }
         
         .back-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background-color: #3498db;
             color: white;
             padding: 8px 15px;
@@ -128,6 +130,64 @@
             margin-bottom: 0.8rem;
         }
         
+        /* Tabel untuk Peer Assessment */
+        .peer-assessment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .peer-assessment-table th,
+        .peer-assessment-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .peer-assessment-table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .peer-assessment-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .peer-assessment-table tr:hover {
+            background-color: #e8f4fc;
+        }
+        
+        .comparison-section {
+            background-color: #e8f6f3;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
         footer {
             background-color: #2c3e50;
             color: white;
@@ -159,7 +219,10 @@
         <div class="container">
             <h1>UTS 5: My Personal Reviews</h1>
             <p>Evaluasi dan Refleksi Terhadap UTS 1-4</p>
-            <a href="index.html" class="back-btn">Back to Homepage</a>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
         </div>
     </header>
     
@@ -183,7 +246,7 @@
                 </ul>
             </div>
             
-            <h2>Tinjauan Spesifik Berdasarkan Rubrik</h2>
+            <h2>Self-Assessment (Menggunakan AI)</h2>
             
             <div class="review-section">
                 <h3>UTS 1: All About Me</h3>
@@ -290,7 +353,7 @@
             </div>
             
             <div class="review-section">
-                <h2>Rekap Skor Keseluruhan</h2>
+                <h2>Rekap Skor Self-Assessment</h2>
                 <div style="text-align: center; margin: 2rem 0;">
                     <div style="font-size: 3rem; font-weight: bold; color: #2c3e50;">4.4/5.0</div>
                     <div style="font-size: 1.5rem; color: #7f8c8d;">88% - Excellent</div>
@@ -314,6 +377,89 @@
                         <div>88%</div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Bagian Peer Assessment yang ditambahkan -->
+            <h2>Peer Assessment (Manual)</h2>
+            <div class="review-section">
+                <h3>Hasil Penilaian dari Teman Sejawat</h3>
+                <p>Berikut adalah hasil penilaian yang dilakukan oleh tiga teman sejawat terhadap portofolio UTS saya:</p>
+                
+                <table class="peer-assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Penilai</th>
+                            <th>UTS 1</th>
+                            <th>UTS 2</th>
+                            <th>UTS 3</th>
+                            <th>UTS 4</th>
+                            <th>Total</th>
+                            <th>Rata-rata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Peer 1</td>
+                            <td>4.5</td>
+                            <td>4.7</td>
+                            <td>4.8</td>
+                            <td>4.6</td>
+                            <td>18.6</td>
+                            <td>4.65</td>
+                        </tr>
+                        <tr>
+                            <td>Peer 2</td>
+                            <td>4.3</td>
+                            <td>4.6</td>
+                            <td>4.7</td>
+                            <td>4.5</td>
+                            <td>18.1</td>
+                            <td>4.53</td>
+                        </tr>
+                        <tr>
+                            <td>Peer 3</td>
+                            <td>4.4</td>
+                            <td>4.5</td>
+                            <td>4.9</td>
+                            <td>4.7</td>
+                            <td>18.5</td>
+                            <td>4.63</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <div style="font-size: 1.5rem; color: #2c3e50;">Rata-rata Peer Assessment: <strong>4.60/5.0</strong></div>
+                    <div style="font-size: 1.2rem; color: #7f8c8d;">92% - Excellent</div>
+                </div>
+            </div>
+
+            <!-- Bagian Perbandingan antara Self dan Peer Assessment -->
+            <div class="comparison-section">
+                <h2>Perbandingan Self vs Peer Assessment</h2>
+                <p>Berikut perbandingan antara penilaian diri menggunakan AI dan penilaian dari teman sejawat:</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-score">4.4/5.0</div>
+                        <div>Self Assessment</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-score">4.6/5.0</div>
+                        <div>Peer Assessment</div>
+                    </div>
+                </div>
+                
+                <h3>Analisis Perbandingan</h3>
+                <p>Terdapat perbedaan skor antara self-assessment dan peer assessment, di mana peer assessment memberikan nilai yang sedikit lebih tinggi secara keseluruhan. Hal ini menunjukkan bahwa:</p>
+                
+                <ul>
+                    <li>Teman sejawat mungkin melihat aspek-aspek positif yang tidak saya sadari dalam karya saya</li>
+                    <li>Mungkin ada kecenderungan untuk lebih kritis terhadap diri sendiri (self-criticism)</li>
+                    <li>Perbedaan perspektif dapat memberikan wawasan yang lebih holistik terhadap kualitas karya</li>
+                </ul>
+                
+                <p>Secara khusus, UTS 3 (My Stories For You) mendapat penilaian tertinggi dari kedua sisi, menunjukkan bahwa narasi perjalanan pribadi memiliki daya tarik dan dampak yang kuat.</p>
             </div>
             
             <div class="improvement-list">
@@ -339,7 +485,7 @@
                     <li>Authentic voice dan personal branding yang jelas</li>
                 </ul>
                 
-                <p>Dengan skor keseluruhan 88%, portofolio ini tidak hanya memenuhi requirements akademik tetapi juga berhasil menyampaikan identitas personal Anda dengan efektif.</p>
+                <p>Dengan skor keseluruhan 88% dari self-assessment dan 92% dari peer assessment, portofolio ini tidak hanya memenuhi requirements akademik tetapi juga berhasil menyampaikan identitas personal Anda dengan efektif.</p>
             </div>
         </div>
     </div>
