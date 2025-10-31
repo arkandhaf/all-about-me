@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS 4: My SHAPE - Arkan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .shape-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .shape-title {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .shape-subtitle {
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 1.5rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .shape-container {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+        
+        .shape-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .shape-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid;
+            transition: transform 0.3s;
+        }
+        
+        .shape-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .strengths-card {
+            border-top-color: #e74c3c;
+        }
+        
+        .heart-card {
+            border-top-color: #e67e22;
+        }
+        
+        .aptitudes-card {
+            border-top-color: #f39c12;
+        }
+        
+        .personality-card {
+            border-top-color: #2ecc71;
+        }
+        
+        .experiences-card {
+            border-top-color: #3498db;
+        }
+        
+        .shape-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .shape-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .shape-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .shape-list li::before {
+            content: '•';
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .mission-section {
+            background-color: #e8f4fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2980b9;
+        }
+        
+        .mission-section h2 {
+            color: #2980b9;
+            border-bottom: none;
+        }
+        
+        .narrative-section {
+            background-color: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .narrative-section h2 {
+            color: #e67e22;
+            border-bottom: none;
+        }
+        
+        .quote-box {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .shape-acronym {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .acronym-item {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        .acronym-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .acronym-word {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .shape-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .shape-acronym {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UTS 4: My SHAPE</h1>
+            <p>Discovering My Personal Identity and Values</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="shape-header">
+                <h1 class="shape-title">My SHAPE</h1>
+                <p class="shape-subtitle">Understanding My Unique Design and Purpose</p>
+            </div>
+            
+            <div class="shape-acronym">
+                <div class="acronym-item">
+                    <div class="acronym-letter">S</div>
+                    <div class="acronym-word">Signature Strengths</div>
+                </div>
+                <div class="acronym-item">
+                    <div class="acronym-letter">H</div>
+                    <div class="acronym-word">Heart & Values</div>
+                </div>
+                <div class="acronym-item">
+                    <div class="acronym-letter">A</div>
+                    <div class="acronym-word">Aptitudes & Skills</div>
+                </div>
+                <div class="acronym-item">
+                    <div class="acronym-letter">P</div>
+                    <div class="acronym-word">Personality</div>
+                </div>
+                <div class="acronym-item">
+                    <div class="acronym-letter">E</div>
+                    <div class="acronym-word">Experiences</div>
+                </div>
+            </div>
+            
+            <div class="shape-grid">
+                <div class="shape-card strengths-card">
+                    <h3><i class="fas fa-rocket"></i> S — Signature Strengths</h3>
+                    <p>Kekuatan utama yang membedakan dan mendorong kesuksesan saya:</p>
+                    <ul class="shape-list">
+                        <li>Mampu belajar hal baru dengan cepat</li>
+                        <li>Tidak mudah terpengaruh emosi, dapat berpikir jernih dalam tekanan</li>
+                        <li>Mudah beradaptasi di lingkungan baru</li>
+                    </ul>
+                </div>
+                
+                <div class="shape-card heart-card">
+                    <h3><i class="fas fa-heart"></i> H — Heart & Values</h3>
+                    <p>Nilai-nilai inti dan hal yang saya perjuangkan dalam hidup:</p>
+                    <ul class="shape-list">
+                        <li>Mengutamakan keluarga dan hubungan yang bermakna</li>
+                        <li>Berpegang pada integritas dan rasa tanggung jawab</li>
+                        <li>Memiliki kepedulian terhadap kesejahteraan orang lain</li>
+                    </ul>
+                </div>
+                
+                <div class="shape-card aptitudes-card">
+                    <h3><i class="fas fa-cogs"></i> A — Aptitudes & Acquired Skills</h3>
+                    <p>Kemampuan dan keterampilan yang telah saya kembangkan:</p>
+                    <ul class="shape-list">
+                        <li>Kemampuan analitis dan berpikir komputasional</li>
+                        <li>Keterampilan manajemen waktu dan pemecahan masalah</li>
+                        <li>Mampu bekerja efektif dalam tim lintas bidang</li>
+                    </ul>
+                </div>
+                
+                <div class="shape-card personality-card">
+                    <h3><i class="fas fa-user"></i> P — Personality</h3>
+                    <p>Karakteristik kepribadian yang membentuk cara saya berinteraksi:</p>
+                    <p>Pribadi yang tenang, perfeksionis, dan reflektif. Kadang cenderung overthinking, tetapi selalu berusaha terbuka terhadap saran dan kritik. Memiliki dorongan kuat untuk memperbaiki diri serta membantu orang lain berkembang.</p>
+                </div>
+                
+                <div class="shape-card experiences-card">
+                    <h3><i class="fas fa-book"></i> E — Experiences</h3>
+                    <p>Pengalaman hidup yang membentuk karakter dan perspektif saya:</p>
+                    <ul class="shape-list">
+                        <li>Mengikuti kompetisi dan proyek kolaboratif di bidang teknologi dan organisasi</li>
+                        <li>Aktif di kegiatan kampus seperti KSEP ITB, belajar mengelola waktu dan tim</li>
+                        <li>Menghadapi kegagalan dalam lomba yang justru memperkuat semangat belajar</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="quote-box">
+                "Nilai sejati seseorang tidak diukur dari apa yang dimilikinya, tetapi dari seberapa besar manfaat yang bisa dia berikan kepada orang lain"
+            </div>
+            
+            <div class="mission-section">
+                <h2><i class="fas fa-bullseye"></i> Pernyataan Misi Pribadi</h2>
+                <p>Saya bertekad untuk menghubungkan pengetahuan, teknologi, dan manusia. Melalui pembelajaran yang saya tempuh, saya ingin mengembangkan kemampuan tidak hanya dalam aspek teknis, tetapi juga dalam empati dan tanggung jawab sosial. Tujuan saya adalah menjadi seseorang yang menggunakan keahlian digital untuk menciptakan solusi yang aman, etis, dan bermanfaat bagi masyarakat luas.</p>
+                
+                <p>Saya percaya bahwa teknologi harus menjadi alat untuk mempermudah kehidupan manusia, bukan sekadar pencapaian teknis semata. Dengan pendekatan yang manusiawi dan beretika, saya ingin berkontribusi dalam menciptakan dunia digital yang lebih inklusif dan bermakna.</p>
+            </div>
+            
+            <div class="narrative-section">
+                <h2><i class="fas fa-book-open"></i> Identitas Naratif</h2>
+                <p>Bagi saya, hidup adalah proses belajar yang tidak berhenti. Setiap tantangan selalu membawa pelajaran baru tentang ketekunan, komunikasi, dan kepercayaan diri. Saya percaya bahwa nilai sejati seseorang tidak diukur dari apa yang dimilikinya, tetapi dari seberapa besar manfaat yang bisa dia berikan kepada orang lain.</p>
+                
+                <p>Sejak menempuh pendidikan di ITB, saya belajar bahwa kolaborasi lebih penting daripada kompetisi. Saat bekerja dalam tim, saya belajar menghargai perbedaan dan mendapatkan sudut pandang lain. Dalam setiap kegagalan, saya menemukan arah baru untuk tumbuh.</p>
+                
+                <p>Saya ingin menjadi pribadi yang bukan hanya "berhasil," tetapi juga "bermakna", yakni seseorang yang dapat diandalkan, menebarkan semangat positif, dan terus berusaha membawa perubahan kecil yang berarti di sekitar saya. Perjalanan di ITB telah mengajarkan bahwa kesuksesan sejati adalah ketika kita bisa membawa orang lain bersama-sama meraih impian mereka.</p>
+                
+                <p>Melalui kombinasi antara kemampuan teknis dan nilai-nilai kemanusiaan, saya berharap dapat menjadi jembatan antara dunia teknologi dan kebutuhan masyarakat, menciptakan solusi yang tidak hanya canggih secara teknis tetapi juga relevan dan bermanfaat bagi kehidupan nyata.</p>
+            </div>
+            
+            <div class="shape-container">
+                <h3><i class="fas fa-lightbulb"></i> Refleksi Akhir</h3>
+                <p>Memahami SHAPE saya telah memberikan perspektif yang lebih jelas tentang tujuan dan arah hidup. Setiap komponen - Strengths, Heart, Aptitudes, Personality, dan Experiences - saling terhubung membentuk identitas unik yang dapat saya kontribusikan kepada dunia.</p>
+                
+                <p>Dengan kesadaran ini, saya dapat lebih fokus dalam mengembangkan potensi, memanfaatkan kekuatan, dan terus belajar dari setiap pengalaman. SHAPE bukanlah titik akhir, melainkan peta perjalanan yang akan terus berkembang seiring dengan pembelajaran dan pertumbuhan pribadi.</p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah. UTS 4 - II2100 Komunikasi Interpersonal dan Publik.</p>
+            <div class="contact-links">
+                <a href="mailto:18224116@std.stei.itb.ac.id" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/arkandhaf" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

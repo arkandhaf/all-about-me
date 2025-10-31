@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Muhammad Arkan Dhaifullah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigasi */
+        nav {
+            background-color: #34495e;
+            padding: 0.8rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Section umum */
+        section {
+            padding: 3rem 0;
+            background-color: white;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #3498db;
+        }
+        
+        /* Tentang Saya */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ecf0f1;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .info-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .info-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .info-list li::before {
+            content: '•';
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* UTS */
+        .uts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .uts-card {
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #3498db;
+        }
+        
+        .uts-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .uts-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .uts-card p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .uts-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .uts-link:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Kontak */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            min-width: 250px;
+        }
+        
+        .contact-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .contact-details a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-details a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        /* Warna khusus untuk setiap platform */
+        .email .contact-icon {
+            background-color: #d44638;
+        }
+        
+        .instagram .contact-icon {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .github .contact-icon {
+            background-color: #333;
+        }
+        
+        .linkedin .contact-icon {
+            background-color: #0077b5;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* Responsif */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Muhammad Arkan Dhaifullah</h1>
+            <p>Mahasiswa Sistem dan Teknologi Informasi - STEI ITB</p>
+        </div>
+    </header>
+    
+    <!-- Navigasi -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">Profil Singkat</a></li>
+                <li><a href="#uts">Tugas UTS</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Tentang Saya -->
+    <section id="about">
+        <div class="container">
+            <h2>Profil Singkat</h2>
+            <div class="about-content">
+                <img src="Arkan JAV.jpg" alt="Muhammad Arkan Dhaifullah" class="profile-img">
+                <div class="about-text">
+                    <h3>Halo! Saya Arkan</h3>
+                    <p>Saya adalah mahasiswa Sistem dan Teknologi dan Informasi di ITB. Saat ini saya sedang mengikuti mata kuliah II2100 Komunikasi Interpersonal dan Publik.</p>
+                    <p>Saya memiliki ketertarikan dalam bidang pengembangan web, network engineer, dan teknologi terkini. Saya senang mempelajari hal-hal baru dan berkolaborasi dalam proyek yang menarik.</p>
+                    
+                    <ul class="info-list">
+                        <li><strong>NIM:</strong> 18224116</li>
+                        <li><strong>Program Studi:</strong> Sistem dan Teknologi Informasi </li>
+                        <li><strong>Asal:</strong> Jakarta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tugas UTS -->
+    <section id="uts">
+        <div class="container">
+            <h2>Tugas UTS II2100</h2>
+            <div class="uts-grid">
+                <div class="uts-card">
+                    <h3>UTS 1: All About Me</h3>
+                    <p>Presentasi tentang diri sendiri, latar belakang, dan nilai-nilai hidup.</p>
+                    <a href="uts1.html" class="uts-link">Lihat Detail</a>
+                </div>
+                
+                <div class="uts-card">
+                    <h3>UTS 2: My Songs For You</h3>
+                    <p>Kumpulan lagu yang memiliki makna khusus dalam perjalanan hidup.</p>
+                    <a href="uts2.html" class="uts-link">Lihat Detail</a>
+                </div>
+                
+                <div class="uts-card">
+                    <h3>UTS 3: My Stories For You</h3>
+                    <p>Cerita-cerita pribadi yang membentuk karakter dan pandangan hidup.</p>
+                    <a href="uts3.html" class="uts-link">Lihat Detail</a>
+                </div>
+                
+                <div class="uts-card">
+                    <h3>UTS 4: My Shape</h3>
+                    <p>Representasi visual diri dalam bentuk geometris dan maknanya.</p>
+                    <a href="uts4.html" class="uts-link">Lihat Detail</a>
+                </div>
+                
+                <div class="uts-card">
+                    <h3>UTS 5: My Personal Review</h3>
+                    <p>Review dan penilaian terhadap seluruh submisi UTS 1-4.</p>
+                    <a href="uts5.html" class="uts-link">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Kontak -->
+    <section id="contact">
+        <div class="container">
+            <h2>Kontak</h2>
+            <div class="contact-info">
+                <div class="contact-item email">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:18224116@std.stei.itb.ac.id">18224116@std.stei.itb.ac.id</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item instagram">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Instagram</h3>
+                        <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank">@arkandhaf</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item github">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/arkandhaf" target="_blank">arkandhaf</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item linkedin">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank">Muhammad Arkan Dhaifullah</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah.</p>
+        </div>
+    </footer>
+</body>
+</html>

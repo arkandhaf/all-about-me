@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS 3: My Stories For You - Arkan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+           display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 i {
+            color: #e74c3c;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .story-section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #fff9e6;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            font-size: 1.1rem;
+            color: #7d6608;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #3498db;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            top: 15px;
+            right: -12px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 1.2rem;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h4 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .lesson-learned {
+            background-color: #e8f6f3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .lesson-learned h3 {
+            color: #16a085;
+        }
+        
+        .conclusion {
+            background-color: #f4ecf7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8e44ad;
+            text-align: center;
+        }
+        
+        .conclusion h3 {
+            color: #8e44ad;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UTS 3: My Stories For You</h1>
+            <p>Perjalanan dari Masa Terpuruk Menuju Kebangkitan</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="story-section">
+                <h2>My Redemption Story</h2>
+                <p>Ini adalah cerita tentang perjalanan hidup saya dari masa terpuruk hingga kembali bangkit. Sebuah kisah tentang pembelajaran, penyesalan, dan akhirnya penebusan diri.</p>
+                
+                <div class="quote">
+                    "Ketika anda ngerasa berat dan sering mengalami rejection, bukan berarti akhir dari segala cerita, tapi pelajaran untuk berkembang dan juga awal mula dalam kesuksesan"
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-rocket"></i> Awal Semester TPB</h4>
+                        <p>Memasuki ITB dengan perasaan bangga walau awalnya menginginkan STEI-R. TPB (Tahap Paling Bahagia) menjadi chapter baru dengan banyak teman dan pengalaman.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-heart"></i> Pelajaran Romantis</h4>
+                        <p>Mengalami suka sama dua orang yang berakhir tragis. Fokus yang teralihkan menyebabkan awal kehancuran akademik dan sosial.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-bomb"></i> Titik Terendah</h4>
+                        <p>Merasa menjadi orang yang dibenci, menghilang dari kepanitiaan, dan mengorbankan akademik. Tidak kuliah berhari-hari, hanya ditemani teman kos yang suportif.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-search"></i> Pengumuman Penjurusan</h4>
+                        <p>Perasaan campur aduk: gelisah, takut, excited. Penyesalan mendalam karena tidak fokus pada akademik di TPB. Khawatir akan dipandang sebelah mata.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-comments"></i> Dukungan Teman</h4>
+                        <p>Respons teman yang peduli dengan perasaan saya: "Gapapa kan, anggap ini pelajaran buat lu, gw juga ngerti kok lu pas TPB kenapa, lu buktiin di semester 2 bahwa lu emang bisa bersaing sama yang lain"</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-redo"></i> Redemption Arc Dimulai</h4>
+                        <p>Semester 2: lebih semangat, lebih banyak effort di akademik dan kepanitiaan. Mindset: "Kalau lu gini2 terus, bermalas2an, hidup lu ga bakal kemana"</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-heart"></i> Kedatangan Mecca</h4>
+                        <p>Menemukan cinta sejati yang menjadi semangat hidup, membuat hidup lebih berwarna, dan mendorong untuk lebih serius kuliah.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-trophy"></i> Hasil Akhir Semester 2</h4>
+                        <p>Walau belum memuaskan, bangga dengan hasil kerja keras. Bukti bahwa perjuangan dan effort membuahkan hasil yang baik.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3><i class="fas fa-fire"></i> Masa-Masa Sulit</h3>
+                <p>TPB yang seharusnya menjadi "Tahap Paling Bahagia" justru berubah menjadi periode penuh tantangan. Fokus yang teralihkan ke hubungan romantis membuat akademik terbengkalai. Keputusan untuk menghilang dari semua tanggung jawab justru memperburuk keadaan.</p>
+                
+                <p>Yang menyelamatkan adalah teman-teman kos yang selalu ada, memberikan dukungan tanpa syarat. Canda tawa mereka menjadi penyemangat di saat-saat terpuruk.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3><i class="fas fa-lightbulb"></i> Titik Balik</h3>
+                <p>Pengumuman penjurusan menjadi wake-up call. Penyesalan yang mendalam karena menyia-nyiakan kesempatan di TPB. Namun, dukungan teman dekat menjadi katalis perubahan.</p>
+                
+                <p>Kata-kata teman: "Lu buktiin di semester 2 bahwa lu emang bisa bersaing sama yang lain" menjadi motivasi kuat untuk bangkit dan membuktikan diri.</p>
+            </div>
+            
+            <div class="lesson-learned">
+                <h3><i class="fas fa-graduation-cap"></i> Pelajaran yang Diambil</h3>
+                <p><strong>1. Fokus pada Prioritas:</strong> Akademik harus menjadi prioritas utama di masa kuliah.</p>
+                <p><strong>2. Komunikasi adalah Kunci:</strong> Berbicara dengan teman tentang masalah justru membuka jalan solusi.</p>
+                <p><strong>3. Dukungan Sosial Penting:</strong> Teman yang baik adalah aset berharga dalam menghadapi masa sulit.</p>
+                <p><strong>4. Cinta yang Sehat Membangun:</strong> Relationship yang baik mendorong perkembangan pribadi.</p>
+                <p><strong>5. Kegagalan Bukan Akhir:</strong> Setiap kegagalan adalah pelajaran untuk bangkit lebih kuat.</p>
+            </div>
+            
+            <div class="conclusion">
+                <h3><i class="fas fa-star"></i> Kesimpulan</h3>
+                <p>Perjalanan dari titik terendah menuju kebangkitan mengajarkan bahwa <strong>rejection dan kesulitan bukan akhir segalanya</strong>, melainkan batu loncatan menuju versi diri yang lebih baik. Setiap kegagalan membawa pelajaran berharga, dan dukungan dari orang-orang terdekat menjadi kekuatan untuk terus melangkah.</p>
+                
+                <p>Kini saya memahami bahwa <strong>redemption arc</strong> dalam hidup bukan tentang menjadi sempurna, tapi tentang belajar dari kesalahan, bangkit lebih kuat, dan terus berproses menjadi pribadi yang lebih baik.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah. UTS 3 - II2100 Komunikasi Interpersonal dan Publik.</p>
+            <div class="contact-links">
+                <a href="mailto:18224116@std.stei.itb.ac.id" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/arkandhaf" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

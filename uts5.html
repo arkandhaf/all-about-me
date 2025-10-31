@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS 5: My Personal Reviews - Arkan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .review-section {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .score-card {
+            background-color: #e8f4fc;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+        
+        .score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .criteria-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .improvement-list {
+            background-color: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+        }
+        
+        .improvement-list li {
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Tabel untuk Peer Assessment */
+        .peer-assessment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .peer-assessment-table th,
+        .peer-assessment-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .peer-assessment-table th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .peer-assessment-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .peer-assessment-table tr:hover {
+            background-color: #e8f4fc;
+        }
+        
+        .comparison-section {
+            background-color: #e8f6f3;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sheets-link {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .sheets-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1e8449;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .sheets-link a:hover {
+            background-color: #145a32;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UTS 5: My Personal Reviews</h1>
+            <p>Evaluasi dan Refleksi Terhadap UTS 1-4</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Identifikasi</h2>
+            <p><strong>Nama & NIM:</strong> Muhammad Arkan Dhaifullah - 18224116</p>
+            <p><strong>Penilai:</strong> AI-Assisted Self Assessment</p>
+            <p><strong>Cakupan Penilaian:</strong> UTS 1-4 (All About Me, My Songs For You, My Stories For You, My SHAPE)</p>
+            
+            <div class="review-section">
+                <h2>Tinjauan Umum</h2>
+                <p>Portofolio UTS menunjukkan konsistensi dalam tema dan struktur dengan desain yang profesional. Keseluruhan situs menggunakan palette warna biru (#2c3e50, #3498db) yang memberikan kesan serius namun tetap menarik. Navigasi antara halaman berfungsi dengan baik, dan setiap halaman memiliki struktur yang jelas.</p>
+                
+                <p><strong>Kekuatan Utama:</strong></p>
+                <ul>
+                    <li>Konsistensi visual across semua halaman UTS</li>
+                    <li>Konten personal yang autentik dan reflektif</li>
+                    <li>Struktur HTML yang terorganisir dengan baik</li>
+                    <li>Responsive design yang bekerja pada berbagai ukuran layar</li>
+                </ul>
+            </div>
+            
+            <h2>Self-Assessment (Menggunakan AI)</h2>
+            
+            <div class="review-section">
+                <h3>UTS 1: All About Me</h3>
+                <div class="score-card">
+                    Skor: <span class="score">4.2/5.0</span> (84%)
+                </div>
+                
+                <div class="criteria-grid">
+                    <div class="criteria-item">
+                        <strong>Orisinalitas: 4/5</strong>
+                        <p>Konten personal dan autentik, meskipun struktur masih konvensional</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Keterlibatan: 4/5</strong>
+                        <p>Menarik dengan informasi latar belakang yang komprehensif</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Humor: 3/5</strong>
+                        <p>Terdapat elemen personal tapi humor terbatas</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Wawasan: 5/5</strong>
+                        <p>Refleksi diri yang mendalam dengan nilai-nilai yang jelas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-section">
+                <h3>UTS 2: My Songs For You</h3>
+                <div class="score-card">
+                    Skor: <span class="score">4.5/5.0</span> (90%)
+                </div>
+                
+                <div class="criteria-grid">
+                    <div class="criteria-item">
+                        <strong>Orisinalitas: 5/5</strong>
+                        <p>Pemilihan lagu yang personal dengan cerita yang unik</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Keterlibatan: 4/5</strong>
+                        <p>Emosional dan engaging dengan koneksi ayah-anak yang kuat</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Humor: 4/5</strong>
+                        <p>Sentuhan personal yang hangat meski tidak banyak humor</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Inspirasi: 5/5</strong>
+                        <p>Koneksi emosional yang dalam dan menginspirasi</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-section">
+                <h3>UTS 3: My Stories For You</h3>
+                <div class="score-card">
+                    Skor: <span class="score">4.6/5.0</span> (92%)
+                </div>
+                
+                <div class="criteria-grid">
+                    <div class="criteria-item">
+                        <strong>Orisinalitas: 5/5</strong>
+                        <p>Cerita perjalanan akademik dan personal yang sangat autentik</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Keterlibatan: 5/5</strong>
+                        <p>Alur cerita yang compelling dengan timeline visual yang efektif</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Pengembangan Narasi: 4/5</strong>
+                        <p>Struktur "redemption arc" yang jelas dan berkembang baik</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Inspirasi: 5/5</strong>
+                        <p>Pesan motivasi yang kuat dan relatable bagi mahasiswa</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-section">
+                <h3>UTS 4: My SHAPE</h3>
+                <div class="score-card">
+                    Skor: <span class="score">4.4/5.0</span> (88%)
+                </div>
+                
+                <div class="criteria-grid">
+                    <div class="criteria-item">
+                        <strong>Orisinalitas: 4/5</strong>
+                        <p>Analisis diri yang mendalam dengan framework SHAPE yang tepat</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Keterlibatan: 5/5</strong>
+                        <p>Struktur grid yang interaktif dan mudah diikuti</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Pengembangan Narasi: 4/5</strong>
+                        <p>Koneksi antara komponen SHAPE dengan pengalaman nyata</p>
+                    </div>
+                    <div class="criteria-item">
+                        <strong>Inspirasi: 5/5</strong>
+                        <p>Pernyataan misi yang visioner dan grounded</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-section">
+                <h2>Rekap Skor Self-Assessment</h2>
+                <div style="text-align: center; margin: 2rem 0;">
+                    <div style="font-size: 3rem; font-weight: bold; color: #2c3e50;">4.4/5.0</div>
+                    <div style="font-size: 1.5rem; color: #7f8c8d;">88% - Excellent</div>
+                </div>
+                
+                <div class="criteria-grid">
+                    <div class="criteria-item" style="text-align: center;">
+                        <strong>UTS 1</strong>
+                        <div>84%</div>
+                    </div>
+                    <div class="criteria-item" style="text-align: center;">
+                        <strong>UTS 2</strong>
+                        <div>90%</div>
+                    </div>
+                    <div class="criteria-item" style="text-align: center;">
+                        <strong>UTS 3</strong>
+                        <div>92%</div>
+                    </div>
+                    <div class="criteria-item" style="text-align: center;">
+                        <strong>UTS 4</strong>
+                        <div>88%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian Peer Assessment yang ditambahkan -->
+            <h2>Peer Assessment (Manual)</h2>
+            <div class="review-section">
+                <h3>Hasil Penilaian dari Teman Sejawat</h3>
+                <p>Berikut adalah hasil penilaian yang dilakukan oleh tiga teman sejawat terhadap portofolio UTS saya:</p>
+                
+                <table class="peer-assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Penilai</th>
+                            <th>UTS 1</th>
+                            <th>UTS 2</th>
+                            <th>UTS 3</th>
+                            <th>UTS 4</th>
+                            <th>Total</th>
+                            <th>Rata-rata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stephanie Mae</td>
+                            <td>4.0</td>
+                            <td>4.75</td>
+                            <td>4.5</td>
+                            <td>5.0</td>
+                            <td>18.25</td>
+                            <td>4.56</td>
+                        </tr>
+                        <tr>
+                            <td>Firanti Naulia Fasya</td>
+                            <td>4.0</td>
+                            <td>4.75</td>
+                            <td>4.75</td>
+                            <td>5.0</td>
+                            <td>18.5</td>
+                            <td>4.63</td>
+                        </tr>
+                        <tr>
+                            <td>Ibrahim Ferizarizqi Permana</td>
+                            <td>4.0</td>
+                            <td>4.5</td>
+                            <td>4.75</td>
+                            <td>5.0</td>
+                            <td>18.25</td>
+                            <td>4.56</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <div style="font-size: 1.5rem; color: #2c3e50;">Rata-rata Peer Assessment: <strong>4.58/5.0</strong></div>
+                    <div style="font-size: 1.2rem; color: #7f8c8d;">91.6% - Excellent</div>
+                </div>
+                
+                <div class="sheets-link">
+                    <a href="https://docs.google.com/spreadsheets/d/1plwlKQEfwObGFVgT-LEIOh7uKPnqFBj0/edit?usp=sharing&ouid=106460706070573851367&rtpof=true&sd=true" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Lihat Lembar Skor Lengkap di Google Sheets
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bagian Perbandingan antara Self dan Peer Assessment -->
+            <div class="comparison-section">
+                <h2>Perbandingan Self vs Peer Assessment</h2>
+                <p>Berikut perbandingan antara penilaian diri menggunakan AI dan penilaian dari teman sejawat:</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-score">4.4/5.0</div>
+                        <div>Self Assessment</div>
+                        <div style="font-size: 1.2rem; color: #7f8c8d;">88%</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-score">4.58/5.0</div>
+                        <div>Peer Assessment</div>
+                        <div style="font-size: 1.2rem; color: #7f8c8d;">91.6%</div>
+                    </div>
+                </div>
+                
+                <h3>Analisis Perbandingan</h3>
+                <p>Terdapat perbedaan skor antara self-assessment dan peer assessment, di mana peer assessment memberikan nilai yang sedikit lebih tinggi secara keseluruhan. Hal ini menunjukkan bahwa:</p>
+                
+                <ul>
+                    <li>Teman sejawat mungkin melihat aspek-aspek positif yang tidak saya sadari dalam karya saya</li>
+                    <li>Mungkin ada kecenderungan untuk lebih kritis terhadap diri sendiri (self-criticism)</li>
+                    <li>Perbedaan perspektif dapat memberikan wawasan yang lebih holistik terhadap kualitas karya</li>
+                    <li>Secara khusus, UTS 4 (My SHAPE) mendapat penilaian sempurna dari semua peer reviewer</li>
+                </ul>
+                
+                <p>Secara khusus, UTS 3 (My Stories For You) mendapat penilaian tertinggi dari kedua sisi, menunjukkan bahwa narasi perjalanan pribadi memiliki daya tarik dan dampak yang kuat.</p>
+            </div>
+            
+            <div class="improvement-list">
+                <h2>Rekomendasi Pengembangan</h2>
+                <ol>
+                    <li><strong>UTS 1:</strong> Tambahkan lebih banyak elemen visual (foto, ikon) dan cerita spesifik untuk meningkatkan engagement</li>
+                    <li><strong>UTS 2:</strong> Pertimbangkan untuk menambahkan lebih dari satu lagu untuk menunjukkan variasi pengaruh musik dalam hidup</li>
+                    <li><strong>UTS 3:</strong> Tambahkan metric atau pencapaian spesifik untuk memperkuat narrative redemption arc</li>
+                    <li><strong>UTS 4:</strong> Kembangkan bagian action plan dari analisis SHAPE untuk menunjukkan implementasi praktis</li>
+                    <li><strong>Umum:</strong> Pertahankan konsistensi penggunaan icon dan styling di seluruh halaman</li>
+                </ol>
+            </div>
+            
+            <div class="review-section">
+                <h2>Kesimpulan dan Refleksi</h2>
+                <p>Portofolio UTS Anda menunjukkan perkembangan yang impressif dalam hal kedalaman konten dan kualitas presentasi. Dari UTS 1 ke UTS 4, terlihat peningkatan dalam kemampuan storytelling dan struktur konten.</p>
+                
+                <p><strong>Point of Excellence:</strong></p>
+                <ul>
+                    <li>Koneksi emosional yang kuat dalam UTS 2 dan UTS 3</li>
+                    <li>Kemampuan refleksi diri yang matang dalam UTS 4</li>
+                    <li>Konsistensi teknis dalam pengembangan HTML/CSS</li>
+                    <li>Authentic voice dan personal branding yang jelas</li>
+                </ul>
+                
+                <p>Dengan skor keseluruhan 88% dari self-assessment dan 91.6% dari peer assessment, portofolio ini tidak hanya memenuhi requirements akademik tetapi juga berhasil menyampaikan identitas personal Anda dengan efektif.</p>
+                
+                <p>Perbedaan antara self-assessment dan peer assessment menunjukkan bahwa Anda mungkin cenderung lebih kritis terhadap karya sendiri, yang merupakan tanda dari growth mindset dan komitmen untuk terus meningkatkan kualitas karya.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah. UTS 5 - II2100 Komunikasi Interpersonal dan Publik.</p>
+            <div class="contact-links">
+                <a href="mailto:18224116@std.stei.itb.ac.id" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/arkandhaf" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
