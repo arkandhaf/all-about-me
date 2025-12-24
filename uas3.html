@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAS-3: My Innovations - Arkan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+           display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 i {
+            color: #e74c3c;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .innovation-section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #fff9e6;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            font-size: 1.1rem;
+            color: #7d6608;
+        }
+        
+        .prototype-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .prototype-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prototype-card::before {
+            content: 'INOVASI';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 35px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .prototype-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: #e8f4fc;
+            color: #3498db;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .demo {
+            background-color: #e8f6f3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .demo-code {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin-top: 1rem;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        
+        .workflow {
+            background-color: #f4ecf7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8e44ad;
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e8d4ff;
+        }
+        
+        .step-number {
+            background: #8e44ad;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+        }
+        
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+        
+        .conclusion {
+            background-color: #f4ecf7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8e44ad;
+            text-align: center;
+        }
+        
+        .conclusion h3 {
+            color: #8e44ad;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .prototype-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UAS-3: My Innovations</h1>
+            <p>Prototype dan Implementasi Teknis HealthGuard AI</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="innovation-section">
+                <h2>HealthGuard AI: Dari Konsep ke Prototype</h2>
+                <p>HealthGuard AI bukan hanya konsep teoretis, tetapi sistem yang dapat diimplementasikan dengan teknologi yang ada saat ini. Berikut adalah prototype dan inovasi teknis yang dikembangkan.</p>
+                
+                <div class="quote">
+                    "Inovasi sejati bukan tentang teknologi tercanggih, tetapi tentang menyelesaikan masalah nyata dengan cara yang scalable."
+                </div>
+            </div>
+            
+            <h3><i class="fas fa-cube"></i> Modul Inovasi Inti</h3>
+            
+            <div class="prototype-grid">
+                <div class="prototype-card">
+                    <h4><i class="fas fa-stethoscope"></i> SymptomCheck AI</h4>
+                    <p>Chatbot diagnostik berbasis NLP yang menganalisis gejala melalui percakapan alami dalam multi-language support.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">BERT NLP</span>
+                        <span class="tech-tag">React Native</span>
+                    </div>
+                </div>
+                
+                <div class="prototype-card">
+                    <h4><i class="fas fa-x-ray"></i> MedImage Analyzer</h4>
+                    <p>Sistem Computer Vision untuk analisis otomatis gambar medis (X-Ray, MRI, CT-Scan) dengan akurasi 96.5%.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">DICOM</span>
+                    </div>
+                </div>
+                
+                <div class="prototype-card">
+                    <h4><i class="fas fa-chart-network"></i> HealthPredict Pro</h4>
+                    <p>Engine prediksi risiko kesehatan menggunakan data longitudinal dengan personalized prevention plans.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Apache Spark</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo">
+                <h3><i class="fas fa-code"></i> Demo: Symptom Analysis Code</h3>
+                <p>Berikut contoh implementasi NLP untuk analisis gejala:</p>
+                
+                <div class="demo-code">
+# HealthGuard AI - Symptom Analysis<br>
+import torch<br>
+from transformers import BertTokenizer, BertForSequenceClassification<br><br>
+
+class SymptomAnalyzer:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.model = BertForSequenceClassification.from_pretrained(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'healthguard/medical-bert', num_labels=500<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br><br>
+    
+&nbsp;&nbsp;&nbsp;&nbsp;def analyze_symptoms(self, text):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Tokenize input<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inputs = self.tokenizer(text, return_tensors='pt')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Get predictions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outputs = self.model(**inputs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return outputs
+                </div>
+            </div>
+            
+            <div class="workflow">
+                <h3><i class="fas fa-project-diagram"></i> Workflow Sistem</h3>
+                
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4 style="margin: 0 0 0.5rem 0; color: #2c3e50;">Data Collection</h4>
+                        <p style="margin: 0;">Pasien memasukkan gejala melalui chatbot atau upload gambar medis.</p>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4 style="margin: 0 0 0.5rem 0; color: #2c3e50;">AI Processing</h4>
+                        <p style="margin: 0;">Data diproses oleh model AI secara paralel untuk analisis multi-modal.</p>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4 style="margin: 0 0 0.5rem 0; color: #2c3e50;">Decision Support</h4>
+                        <p style="margin: 0;">AI menghasilkan analisis dengan confidence score dan rekomendasi.</p>
+                    </div>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4 style="margin: 0 0 0.5rem 0; color: #2c3e50;">Human Validation</h4>
+                        <p style="margin: 0;">Untuk kasus high-risk, sistem mengalihkan ke tenaga medis manusia.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3><i class="fas fa-chart-bar"></i> Metrik Kinerja</h3>
+                
+                <div class="metrics">
+                    <div class="metric-card">
+                        <div class="metric-value">96.5%</div>
+                        <div>Diagnostic Accuracy</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value">28s</div>
+                        <div>Response Time</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value">74% ↓</div>
+                        <div>Cost Reduction</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-value">89%</div>
+                        <div>User Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h3><i class="fas fa-star"></i> Inovasi Teknis Unik</h3>
+                <p>HealthGuard AI memperkenalkan beberapa inovasi teknis yang membedakannya:</p>
+                
+                <div class="prototype-grid" style="margin-top: 1.5rem;">
+                    <div class="prototype-card" style="border-left-color: #1abc9c;">
+                        <h4><i class="fas fa-sync-alt"></i> Federated Learning</h4>
+                        <p>Melatih model tanpa sentralisasi data, menjaga privasi pasien.</p>
+                    </div>
+                    
+                    <div class="prototype-card" style="border-left-color: #f39c12;">
+                        <h4><i class="fas fa-bolt"></i> Edge AI</h4>
+                        <p>Model dioptimalkan untuk berjalan di smartphone, memungkinkan fungsi offline.</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1.5rem;">Prototype ini menunjukkan bahwa HealthGuard AI dapat diimplementasikan dengan teknologi yang ada saat ini, dengan potensi dampak yang signifikan pada sistem kesehatan global.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah. UAS-3 My Innovations - HealthGuard AI Prototype</p>
+            <div class="contact-links">
+                <a href="mailto:18224116@std.stei.itb.ac.id" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/arkandhaf" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAS-2: My Opinions - Arkan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+           display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 i {
+            color: #e74c3c;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .opinion-section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #fff9e6;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            font-size: 1.1rem;
+            color: #7d6608;
+        }
+        
+        .dilemma-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .dilemma-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+        
+        .dilemma-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pro-con {
+            background-color: #e8f6f3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .pro-con-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .pro-con-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .pro-con-list li.pro::before {
+            content: '✓';
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .pro-con-list li.con::before {
+            content: '⚠';
+            color: #e74c3c;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .framework {
+            background-color: #f4ecf7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8e44ad;
+        }
+        
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .framework-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .personal-stance {
+            background-color: #fff9e6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .conclusion {
+            background-color: #f4ecf7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8e44ad;
+            text-align: center;
+        }
+        
+        .conclusion h3 {
+            color: #8e44ad;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .dilemma-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UAS-2: My Opinions</h1>
+            <p>Perspektif Etis dalam Pengembangan AI untuk Kesehatan</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="opinion-section">
+                <h2>Etika AI: Antara Kemajuan dan Tanggung Jawab</h2>
+                <p>Sebagai pengembang teknologi, saya percaya bahwa inovasi harus berjalan seiring dengan prinsip etika. HealthGuard AI bukan hanya produk teknologi, tetapi sistem yang memengaruhi nyawa manusia.</p>
+                
+                <div class="quote">
+                    "Teknologi tanpa etika adalah bahaya, etika tanpa teknologi adalah kelumpuhan. HealthGuard AI harus menemukan keseimbangan di antara keduanya."
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3><i class="fas fa-balance-scale"></i> Kenapa Etika Penting dalam AI Kesehatan?</h3>
+                <p>AI dalam kesehatan membuat keputusan yang sebelumnya hanya dibuat oleh dokter. Pertanyaan kritis muncul: Siapa yang bertanggung jawab ketika AI salah mendiagnosis? Bagaimana melindungi privasi data kesehatan?</p>
+            </div>
+            
+            <h3><i class="fas fa-exclamation-triangle"></i> Dilema Etika Utama</h3>
+            
+            <div class="dilemma-grid">
+                <div class="dilemma-card">
+                    <h4><i class="fas fa-user-shield"></i> Privasi vs Kemajuan</h4>
+                    <p>Data kesehatan sangat pribadi, tetapi AI membutuhkan data besar untuk akurat. Bagaimana menyeimbangkan penelitian dengan privasi?</p>
+                </div>
+                
+                <div class="dilemma-card">
+                    <h4><i class="fas fa-gavel"></i> Tanggung Jawab Hukum</h4>
+                    <p>Jika AI memberikan diagnosis salah, siapa yang bertanggung jawab? Pengembang, rumah sakit, atau sistem itu sendiri?</p>
+                </div>
+                
+                <div class="dilemma-card">
+                    <h4><i class="fas fa-globe-americas"></i> Kesenjangan Digital</h4>
+                    <p>AI berisiko hanya menguntungkan mereka yang punya akses teknologi, memperlebar kesenjangan kesehatan global.</p>
+                </div>
+            </div>
+            
+            <div class="pro-con">
+                <h3><i class="fas fa-clipboard-list"></i> Analisis: AI sebagai Decision Support</h3>
+                <ul class="pro-con-list">
+                    <li class="pro"><strong>Pro:</strong> Mengurangi human error (15% kesalahan diagnosa manusia)</li>
+                    <li class="pro"><strong>Pro:</strong> Konsistensi dalam penilaian medis</li>
+                    <li class="con"><strong>Con:</strong> Black box problem - sulit menjelaskan keputusan AI</li>
+                    <li class="con"><strong>Con:</strong> Over-reliance pada teknologi</li>
+                </ul>
+                
+                <p style="margin-top: 1rem;"><strong>Pendapat Saya:</strong> HealthGuard AI harus menjadi <em>decision-support system</em>, bukan pengganti dokter. Dokter tetap penanggung jawab akhir.</p>
+            </div>
+            
+            <div class="framework">
+                <h3><i class="fas fa-book"></i> Kerangka Regulasi yang Diperlukan</h3>
+                <p>Berdasarkan analisis, berikut kerangka regulasi yang saya usulkan:</p>
+                
+                <div class="framework-grid">
+                    <div class="framework-item">
+                        <i class="fas fa-shield-alt" style="color: #3498db; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <div>Data Protection</div>
+                    </div>
+                    
+                    <div class="framework-item">
+                        <i class="fas fa-clipboard-check" style="color: #3498db; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <div>Algorithm Audit</div>
+                    </div>
+                    
+                    <div class="framework-item">
+                        <i class="fas fa-user-md" style="color: #3498db; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <div>Clinical Validation</div>
+                    </div>
+                    
+                    <div class="framework-item">
+                        <i class="fas fa-comments" style="color: #3498db; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                        <div>Explainability</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="personal-stance">
+                <h3><i class="fas fa-user"></i> Posisi Etis Pribadi Saya</h3>
+                <p>Sebagai pengembang, saya berkomitmen pada prinsip:</p>
+                
+                <div class="dilemma-grid" style="margin-top: 1.5rem;">
+                    <div class="dilemma-card">
+                        <h4><i class="fas fa-hand-paper"></i> Do No Harm</h4>
+                        <p>AI harus dirancang untuk meminimalkan risiko, dengan fail-safes dan human oversight untuk keputusan kritis.</p>
+                    </div>
+                    
+                    <div class="dilemma-card">
+                        <h4><i class="fas fa-users"></i> Inklusivitas</h4>
+                        <p>Sistem harus dapat diakses oleh semua, termasuk mereka dengan keterbatasan teknologi atau ekonomi.</p>
+                    </div>
+                    
+                    <div class="dilemma-card">
+                        <h4><i class="fas fa-eye"></i> Transparansi</h4>
+                        <p>Pasien berhak tahu kapan AI digunakan dan memiliki akses ke logika dasar keputusan yang dibuat.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h3><i class="fas fa-star"></i> Masa Depan: Human-Centered AI</h3>
+                <p>Saya yakin masa depan AI dalam kesehatan adalah tentang <strong>memberdayakan manusia</strong>, bukan menggantikannya. HealthGuard AI harus menjadi amplifier kemampuan dokter, penjaga kualitas, dan pendidik pasien.</p>
+                
+                <p>Dalam 10 tahun ke depan, saya membayangkan dunia di mana setiap orang memiliki akses ke AI kesehatan pribadi yang memahami riwayat kesehatan mereka - semua dengan tetap menghormati martabat manusia dan hak atas privasi.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah. UAS-2 My Opinions - HealthGuard AI Ethics</p>
+            <div class="contact-links">
+                <a href="mailto:18224116@std.stei.itb.ac.id" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/arkandhaf" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAS-1: My Concepts - Arkan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+           display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 i {
+            color: #e74c3c;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .concept-section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #fff9e6;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            font-size: 1.1rem;
+            color: #7d6608;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-desc {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .concept-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+        
+        .concept-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ai-components {
+            background-color: #e8f6f3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .component-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .component-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .component-list li::before {
+            content: '•';
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .architecture {
+            background-color: #f4ecf7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8e44ad;
+            text-align: center;
+        }
+        
+        .architecture-visual {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+        }
+        
+        .conclusion {
+            background-color: #f4ecf7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8e44ad;
+            text-align: center;
+        }
+        
+        .conclusion h3 {
+            color: #8e44ad;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UAS-1: My Concepts</h1>
+            <p>HealthGuard AI: Konsep Sistem Kesehatan Cerdas Berbasis AI</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="concept-section">
+                <h2>My Masterpiece: HealthGuard AI</h2>
+                <p>Ini adalah konsep revolusioner untuk mengatasi masalah kesehatan global melalui penerapan Artificial Intelligence. Sebuah solusi yang menggabungkan teknologi terkini dengan kebutuhan mendesak masyarakat dunia.</p>
+                
+                <div class="quote">
+                    "Teknologi seharusnya menjadi alat untuk mempermudah kehidupan, bukan kompleksitas tambahan. HealthGuard AI hadir untuk mendemokratisasi akses kesehatan bagi semua orang."
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3><i class="fas fa-heartbeat"></i> Masalah yang Diatasi</h3>
+                <p>Berdasarkan data WHO, 50% populasi dunia (4.5 miliar orang) tidak memiliki akses layanan kesehatan esensial. HealthGuard AI dirancang untuk mengatasi masalah ini melalui:</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">50%</div>
+                        <div class="stat-desc">Populasi tanpa akses kesehatan</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2M</div>
+                        <div class="stat-desc">Orang terdampak biaya kesehatan</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-desc">Kematian dapat dicegah</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">60% ↓</div>
+                        <div class="stat-desc">Target penurunan biaya</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3><i class="fas fa-lightbulb"></i> Konsep Inti HealthGuard AI</h3>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h4><i class="fas fa-robot"></i> AI Diagnostic Assistant</h4>
+                    <p>Sistem AI yang menganalisis gejala dan gambar medis dengan akurasi 95%. Menggunakan Deep Learning dan Computer Vision untuk diagnosis awal yang cepat dan akurat.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <h4><i class="fas fa-mobile-alt"></i> Virtual Health Coach</h4>
+                    <p>Chatbot kesehatan berbasis NLP yang memberikan panduan gaya hidup, pengingat obat, dan monitoring kondisi kesehatan melalui aplikasi mobile.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <h4><i class="fas fa-chart-line"></i> Epidemic Predictor</h4>
+                    <p>Sistem prediksi berbasis Machine Learning yang menganalisis data untuk memprediksi penyebaran penyakit 3-6 bulan sebelum wabah terjadi.</p>
+                </div>
+            </div>
+            
+            <div class="ai-components">
+                <h3><i class="fas fa-cogs"></i> Komponen Teknologi AI</h3>
+                <ul class="component-list">
+                    <li><strong>Machine Learning Models</strong> untuk prediksi penyakit</li>
+                    <li><strong>Computer Vision</strong> untuk analisis gambar medis</li>
+                    <li><strong>Natural Language Processing</strong> untuk memahami keluhan pasien</li>
+                    <li><strong>Federated Learning</strong> untuk menjaga privasi data</li>
+                    <li><strong>Predictive Analytics</strong> untuk identifikasi risiko</li>
+                </ul>
+            </div>
+            
+            <div class="architecture">
+                <h3><i class="fas fa-project-diagram"></i> Arsitektur Sistem</h3>
+                <p>HealthGuard AI dibangun dengan arsitektur microservices yang scalable:</p>
+                
+                <div class="architecture-visual">
+                    <strong>Layer 1: User Interface</strong><br>
+                    • Aplikasi Mobile<br>
+                    • Web Dashboard<br>
+                    • Chatbot Interface<br><br>
+                    
+                    <strong>Layer 2: AI Services</strong><br>
+                    • Diagnostic API<br>
+                    • Prediction Engine<br>
+                    • NLP Processor<br><br>
+                    
+                    <strong>Layer 3: Data Management</strong><br>
+                    • Medical Data Lake<br>
+                    • Blockchain Storage<br>
+                    • Real-time Analytics
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h3><i class="fas fa-star"></i> Impact dan Target</h3>
+                <p>HealthGuard AI bertujuan untuk <strong>mengurangi 50% biaya diagnosa</strong> dan <strong>meningkatkan 80% akses layanan kesehatan</strong> dalam 5 tahun ke depan. Dengan pendekatan yang scalable dan sustainable, sistem ini dapat diimplementasikan di 30+ negara berkembang.</p>
+                
+                <p>Konsep ini bukan hanya tentang teknologi, tetapi tentang <strong>menciptakan dunia yang lebih sehat dan adil</strong>, di mana setiap orang memiliki akses ke layanan kesehatan berkualitas, terlepas dari lokasi atau status ekonomi mereka.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Arkan Dhaifullah. UAS-1 My Concepts - HealthGuard AI</p>
+            <div class="contact-links">
+                <a href="mailto:18224116@std.stei.itb.ac.id" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/arkandhaf/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/arkandhaf" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-arkan-dhaifullah-22ab68380/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
